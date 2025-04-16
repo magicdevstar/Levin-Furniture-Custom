@@ -1,0 +1,45 @@
+<div class="page-width custom-slick-slider" data-image-to-show="{{ section.settings.image_to_show }}">
+  {% for block in section.blocks %}
+    <div class="slide-item">
+      <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}">
+    </div>
+  {% endfor %}
+</div>
+{% schema %}
+{
+  "name": "Custom Slider",
+  "tag": "section",
+  "class": "slick-slider-section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "image_to_show",
+      "min": 3,
+      "max": 15,
+      "step": 1,
+      "unit": "s",
+      "label": "ImageToShow",
+      "default": 5
+    }
+  ],
+  "blocks": [
+    {
+      "type": "image",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Slider",
+      "blocks": [{ "type": "image" }, { "type": "image" }, { "type": "image" }, { "type": "image" }]
+    }
+  ]
+}
+{% endschema %}

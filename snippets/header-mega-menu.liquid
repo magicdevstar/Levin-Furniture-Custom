@@ -23,50 +23,100 @@
                 >
                   {{- link.title | escape -}}
                 </span>
-                {{- 'icon-caret.svg' | inline_asset_content -}}
               </summary>
               <div
                 id="MegaMenu-Content-{{ forloop.index }}"
-                class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                class="mega-menu__content page-width color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                 tabindex="-1"
               >
-                <ul
-                  class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
-                  role="list"
-                >
-                  {%- for childlink in link.links -%}
-                    <li>
-                      <a
-                        id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
-                        href="{{ childlink.url }}"
-                        class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
-                        {% if childlink.current %}
-                          aria-current="page"
-                        {% endif %}
-                      >
-                        {{ childlink.title | escape }}
+                <div class="mega-menu-cardbox-container">
+                  <div class="mega-menu-shoplinks">
+                    <a href="{{ link.url }}" class="mega-menu-shoplink-button">
+                      Shop All {{ link.title | capitalize  }} >
+                    </a>
+                    {% case link.title %}
+                      {% when 'DINING' %}
+                        <a href="/collections/dining-sets" class="mega-menu-shoplink-button">
+                          Shop All Dining Sets >
+                        </a>
+                      {% when 'MATTRESSES' %}
+                        <a href="/pages/mattresses" class="mega-menu-shoplink-button">
+                          Explore All Mattresses >
+                        </a>
+                      {% when 'OUTDOOR' %}
+                        <a href="/collections/outdoor-sets" class="mega-menu-shoplink-button">
+                          Shop All Outdoor Sets >
+                        </a>
+                    {% endcase %}
+                  </div>
+                  <ul
+                    class="mega-menu__list{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
+                    role="list"
+                  >
+                    {%- for childlink in link.links -%}
+                      <li>
+                        <a
+                          id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
+                          href="{{ childlink.url }}"
+                          class="mega-menu__link mega-menu__link--level-2 link{% if childlink.current %} mega-menu__link--active{% endif %}"
+                          {% if childlink.current %}
+                            aria-current="page"
+                          {% endif %}
+                        >
+                          {{ childlink.title | escape }}
+                        </a>
+                        {%- if childlink.links != blank -%}
+                          <ul class="list-unstyled" role="list">
+                            {%- for grandchildlink in childlink.links -%}
+                              <li>
+                                <a
+                                  id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
+                                  href="{{ grandchildlink.url }}"
+                                  class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                  {% if grandchildlink.current %}
+                                    aria-current="page"
+                                  {% endif %}
+                                >
+                                  {{ grandchildlink.title | escape }}
+                                </a>
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        {%- endif -%}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+                <div class="mega-menu-cardbox">
+                  {% if link.title == 'LIVING ROOM' %}
+                    <img src="https://cdn.shopify.com/s/files/1/0743/8257/3784/files/mega-menu-image1.png?v=1744959714" class="mega-menu-image" width="100%" height="auto"/>
+                    <div class="mega-menu-cardbox-text">
+                      <h3>
+                        <b>Shop New Products</b>
+                      </h3>
+                      <p>
+                        We've got fresh styles to make your living room fresh and cheerful!
+                      </p>
+                      <a href="{{ link.url }}" class="mega-menu-cardbox-button">
+                        SHOP >
                       </a>
-                      {%- if childlink.links != blank -%}
-                        <ul class="list-unstyled" role="list">
-                          {%- for grandchildlink in childlink.links -%}
-                            <li>
-                              <a
-                                id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
-                                href="{{ grandchildlink.url }}"
-                                class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
-                                {% if grandchildlink.current %}
-                                  aria-current="page"
-                                {% endif %}
-                              >
-                                {{ grandchildlink.title | escape }}
-                              </a>
-                            </li>
-                          {%- endfor -%}
-                        </ul>
-                      {%- endif -%}
-                    </li>
-                  {%- endfor -%}
-                </ul>
+                    </div>
+                  {% endif %}
+                  {% if link.title == 'RECLINING' %}
+                    <img src="https://cdn.shopify.com/s/files/1/0743/8257/3784/files/mega-menu-image2.png?v=1744959714" class="mega-menu-image" width="100%" height="auto"/>
+                    <div class="mega-menu-cardbox-text">
+                      <h3>
+                        <b>Shop The Zecliner</b>
+                      </h3>
+                      <p>
+                        The Latest Leap in Home Comfort
+                      </p>
+                      <a href="{{ link.url }}" class="mega-menu-cardbox-button">
+                        SHOP >
+                      </a>
+                    </div>
+                  {% endif %}
+                </div>
               </div>
             </details>
           </header-menu>

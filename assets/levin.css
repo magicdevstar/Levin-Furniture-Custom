@@ -70,3 +70,78 @@
 .slick-list {
     margin: 0 -12px;
 }
+/* Hide default arrows in slick-theme.css */
+.collection-list-slider .slick-prev,
+.collection-list-slider .slick-next {
+  display: none !important;
+}
+
+.collection--slick-arrow {
+  position: absolute;
+  top: -60px; /* Align with dots */
+  background: none;
+  border: none;
+  color: #333; /* Icon color */
+  z-index: 1;
+  cursor: pointer;
+  padding: 0;
+  padding: 10px 15px;
+  background-color: #f7f7f7;
+  line-height: 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.collection--slick-prev-arrow {
+  right: 70px; /* Position left of dots */
+}
+
+.collection--slick-next-arrow {
+  right: 20px; /* Position right of dots */
+}
+
+.colleciton--slick-arrow:hover {
+  color: #000; /* Hover color */
+}
+.collection--slick-arrow[aria-disabled="true"] {
+  color: #acacae;
+  cursor: no-drop;
+}
+.hearder--banner-bar {
+  background-color: #f7f7f9;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 4px 0px;
+  font-size: 1.4rem;
+  color: black;
+}
+.hearder--banner-bar-flex {
+  display: flex;
+  justify-content: space-between;
+}
+.header-bar_flexbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.header-bar_divider {
+  border: 0.5px solid #e0e0e0;
+  display: block!important;
+  height: 14px;
+}
+.basic-color {
+  color: #c10230;
+}
+.header-bar-link {
+  text-decoration: none;
+  color: #000;
+}
+.header-bar-link:hover{
+  text-decoration: underline;
+}
+.header__menu-item {
+  color: black;
+  font-weight: bold;
+}
+.mega-menu__link {
+  color: #000;
+}

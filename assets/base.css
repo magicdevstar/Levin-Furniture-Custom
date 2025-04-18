@@ -489,9 +489,9 @@ h6:empty {
   box-shadow: none;
   text-decoration: underline;
   text-underline-offset: 0.3rem;
-  color: rgb(var(--color-link));
+  color: black;
   background-color: transparent;
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-family: inherit;
 }
 
@@ -777,7 +777,7 @@ summary::-webkit-details-marker {
 }
 
 .title .link {
-  font-size: inherit;
+  font-size: 1.6rem;
 }
 
 .title-wrapper {
@@ -2250,6 +2250,7 @@ input[type='checkbox'] {
   margin: 0;
   letter-spacing: 0.1rem;
   min-height: 3.8rem;
+  font-weight: 600;
 }
 
 .announcement-bar-slider--fade-in-next .announcement-bar__message,

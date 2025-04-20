@@ -91,11 +91,11 @@
       margin-bottom: {{ section.settings.margin_bottom }}px;
     }
   }
-
+  
   @media screen and (min-width: 990px) {
     .header {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: 0px;
+      padding-bottom: 0px;
     }
   }
 {%- endstyle -%}
@@ -224,6 +224,7 @@
       {%- endif -%}
     {%- endif -%}
 
+    {% render 'header-search', input_id: 'Search-In-Modal' %}
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
@@ -248,24 +249,34 @@
           </localization-form>
         {%- endif -%}
       </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
 
       {%- if shop.customer_accounts_enabled -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-          class="header__icon header__icon--account link focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}"
+          class="header__icon header__icon--account focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}"
           rel="nofollow"
         >
           {%- if section.settings.enable_customer_avatar -%}
             <account-icon>
               {%- if customer and customer.has_avatar? -%}
-                {{ customer | avatar }}
+                <div class="header-icon-item">
+                  {{ customer | avatar }}
+                  <span class="header-icon-item__text">MY ACCOUNT</span>
+                </div>
+                
               {%- else -%}
-                <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+                <div class="header-icon-item">
+                  <span class="svg-wrapper">{{ 'account.svg' | inline_asset_content }}</span>
+                  <span class="header-icon-item__text">MY ACCOUNT</span>
+                </div>
               {%- endif -%}
             </account-icon>
           {%- else -%}
-            <span class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
+            
+            <div class="header-icon-item">
+              <span class="svg-wrapper">{{ 'account.svg' | inline_asset_content }}</span>
+              <span class="header-icon-item__text">MY ACCOUNT</span>
+            </div>
           {%- endif -%}
           <span class="visually-hidden">
             {%- liquid
@@ -286,12 +297,17 @@
         {%- endcase -%}
       {%- endfor -%}
 
-      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-        {% if cart == empty %}
-          <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
-        {% else %}
-          <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-        {% endif %}
+      <a href="/pages/financing" class="header__icon header__icon--cart focus-inset" id="cart-icon-bubble">
+        <div class="header-icon-item">
+          <span class="svg-wrapper">{{ 'wallet.svg' | inline_asset_content }}</span>
+          <span class="header-icon-item__text">FINANCING</span>
+        </div>
+      </a>
+      <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart focus-inset" id="cart-icon-bubble">
+        <div class="header-icon-item">
+          <span class="svg-wrapper">{{ 'cart.svg' | inline_asset_content }}</span>
+          <span class="header-icon-item__text">CART</span>
+        </div>
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}
           <div class="cart-count-bubble">
@@ -481,20 +497,8 @@
           "value": "top-left",
           "label": "t:sections.header.settings.logo_position.options__2.label"
         },
-        {
-          "value": "top-center",
-          "label": "t:sections.header.settings.logo_position.options__3.label"
-        },
-        {
-          "value": "middle-left",
-          "label": "t:sections.header.settings.logo_position.options__1.label"
-        },
-        {
-          "value": "middle-center",
-          "label": "t:sections.header.settings.logo_position.options__4.label"
-        }
       ],
-      "default": "middle-left",
+      "default": "top-left",
       "label": "t:sections.header.settings.logo_position.label",
       "info": "t:sections.header.settings.logo_help.content"
     },

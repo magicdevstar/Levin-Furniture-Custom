@@ -84,16 +84,18 @@
         <div class="card__content">
           <div class="card__information">
             <h3 class="card__heading">
+              
+              <p class="collection-card__title">{{- card_collection.title | escape -}}</p>
               <a
                 {% if card_collection == blank %}
                   role="link" aria-disabled="true"
                 {% else %}
                   href="{{ card_collection.url }}"
                 {% endif %}
-                class="full-unstyled-link"
+                class="shopnow_button full-unstyled-link"
               >
                 {%- if card_collection.title != blank -%}
-                  {{- card_collection.title | escape -}}
+                  SHOP NOW
                 {%- else -%}
                   {{ 'onboarding.collection_title' | t }}
                 {%- endif -%}
@@ -120,16 +122,17 @@
       <div class="card__content">
         <div class="card__information">
           <h3 class="card__heading">
+            <p class="collection-card__title">{{- card_collection.title | escape -}}</p>
             <a
               {% if card_collection == blank %}
                 role="link" aria-disabled="true"
               {% else %}
                 href="{{ card_collection.url }}"
               {% endif %}
-              class="full-unstyled-link"
+              class="shopnow_button full-unstyled-link"
             >
               {%- if card_collection.title != blank -%}
-                {{- card_collection.title | escape -}}
+                Shop Now
               {%- else -%}
                 {{ 'onboarding.collection_title' | t }}
               {%- endif -%}
@@ -155,8 +158,9 @@
       <div class="card__content">
         <div class="card__information">
           <h3 class="card__heading card__heading--placeholder">
+            <p class="collection-card__title">{{ 'onboarding.collection_title' | t }}</p>
             <a role="link" aria-disabled="true" class="full-unstyled-link">
-              {{ 'onboarding.collection_title' | t }}
+              SHOP NOW
               <span class="icon-wrap">
                 {{- 'icon-arrow.svg' | inline_asset_content -}}
               </span>

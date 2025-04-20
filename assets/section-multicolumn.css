@@ -35,7 +35,7 @@
 }
 
 .multicolumn-card__image-wrapper--half-width {
-  width: 50%;
+  width: 20%;
 }
 
 .multicolumn-list__item.center .multicolumn-card__image-wrapper:not(.multicolumn-card__image-wrapper--full-width),
@@ -218,7 +218,7 @@
 .multicolumn-card__info .link {
   text-decoration: none;
   font-size: inherit;
-  margin-top: 1.5rem;
+  margin-top: 0rem;
 }
 
 .multicolumn-card__info .icon-wrap {

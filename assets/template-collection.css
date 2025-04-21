@@ -84,9 +84,9 @@
     padding: 0 5rem;
   }
 
-  .collection slider-component:not(.page-width-desktop) {
+  /* .collection slider-component:not(.page-width-desktop) {
     padding: 0;
-  }
+  } */
 
   .collection--full-width slider-component:not(.slider-component-desktop) {
     padding: 0 1.5rem;
@@ -96,4 +96,23 @@
 
 .collection__view-all a:not(.link) {
   margin-top: 1rem;
+}
+.custom-collection__slider-button {
+  position: absolute;
+  top: -50px;
+  gap: 8px;
+  right: 50px;
+}
+.custom-slider-button {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: #f7f7f7 !important;
+}
+.custom-slider-button .svg-wrapper svg {
+  width: 100%;
+  height: 100%;
+}
+.custom-slider-button .svg-wrapper {
+  width: 15px;
+  height: 15px;
 }

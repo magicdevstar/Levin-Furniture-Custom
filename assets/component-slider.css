@@ -133,9 +133,9 @@ slider-component.slider-component-full-width {
 }
 
 @media screen and (min-width: 990px) {
-  .slider-component-desktop.page-width {
+  /* .slider-component-desktop.page-width {
     max-width: none;
-  }
+  } */
 
   .slider--desktop {
     position: relative;
@@ -163,7 +163,7 @@ slider-component.slider-component-full-width {
   }
 
   .slider--desktop .slider__slide:first-child {
-    margin-left: var(--desktop-margin-left-first-item);
+    /* margin-left: var(--desktop-margin-left-first-item); */
     scroll-margin-left: var(--desktop-margin-left-first-item);
   }
 

@@ -209,6 +209,11 @@ ul {
   gap: 8px;
   align-items: center;
 }
+.footer-icon-item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
 .header__icons {
   gap: 20px;
 }
@@ -247,6 +252,26 @@ ul {
   box-shadow: none !important;
   transform: scale(1.03);
 }
+.custom-footer__content {
+  display: flex !important;
+  gap: 50px;
+  width: 100%;
+}
+.custom-footer__lcontent {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.social-icons {
+  display: flex;
+  gap: 20px;
+  height: 20px;
+}
+.footer__blocks-wrapper {
+  width: 70%;
+}
+
 
 @media (max-width: 768px) {
   .hearder--banner-bar {

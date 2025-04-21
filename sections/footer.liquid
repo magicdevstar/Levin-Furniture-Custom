@@ -49,7 +49,58 @@
     or section.settings.enable_follow_on_shop
   -%}
     {%- unless only_empty_brand -%}
-      <div class="footer__content-top page-width">
+      <div class="custom-footer__content footer__content-top page-width">
+        <div class="custom-footer__lcontent">
+          <div>
+            <h2 class="footer-block__heading inline-richtext"><b>Why Shop at Levin?</b></h2>
+            <span class="footer__lcontent-detial">
+              At Levin Furniture & Mattress, we are dedicated to helping you find furniture that best matches your style and fits within your budget.
+              To do this, we offer high quality living room furniture, bedroom furniture, dining rooms, mattresses and much more at affordable prices. 
+              Stop in any of our Altoona, Canton, Cleveland, Greensburg, Pittsburgh, State College, or Youngstown locations to see our amazing selection and deals.
+            </span>
+          </div>
+          <div>
+            <h2 class="footer-block__heading inline-richtext"><b>Follow us</b></h2>
+            <div class="social-icons">
+              <a href="https://www.facebook.com/LevinFurnitureMattress" class="footer__icon focus-inset">
+                <div class="footer-icon-item">
+                  <span class="svg-wrapper">
+                    {{- 'facebook.svg' | inline_asset_content -}}
+                  </span>
+                </div>
+              </a>
+              <a href="https://www.youtube.com/channel/UCNk043s82mr7Zz0yti1LMaw" class="footer__icon focus-inset">
+                <div class="footer-icon-item">
+                  <span class="svg-wrapper">
+                    {{- 'instagram.svg' | inline_asset_content -}}
+                  </span>
+                </div>
+              </a>
+              <a href="https://www.linkedin.com/company/levinfurnitureandmattress" class="footer__icon focus-inset">
+                <div class="footer-icon-item">
+                  <span class="svg-wrapper">
+                    {{- 'linkedin.svg' | inline_asset_content -}}
+                  </span>
+                </div>
+              </a>
+              <a href="https://www.youtube.com/channel/UCNk043s82mr7Zz0yti1LMaw" class="footer__icon focus-inset">
+                <div class="footer-icon-item">
+                  <span class="svg-wrapper">
+                    {{- 'youtube.svg' | inline_asset_content -}}
+                  </span>
+                </div>
+              </a>
+              <a href="https://www.pinterest.com/levin_furniture/" class="footer__icon focus-inset">
+                <div class="footer-icon-item">
+                  <span class="svg-wrapper">
+                    {{- 'pinterest.svg' | inline_asset_content -}}
+                  </span>
+                </div>
+              </a>
+            </div>
+          </div>
+          
+        </div>
         {%- if section.blocks.size > 0 -%}
           {%- liquid
             if section.blocks.size == 9
@@ -159,7 +210,7 @@
           </div>
         {%- endif -%}
 
-        <div
+        {% comment %} <div
           class="footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
           {% if settings.animations_reveal_on_scroll %}
             data-cascade
@@ -245,7 +296,7 @@
           {%- if section.settings.show_social and has_social_icons -%}
             {%- render 'social-icons', class: 'footer__list-social' -%}
           {%- endif -%}
-        </div>
+        </div> {% endcomment %}
       </div>
     {%- endunless -%}
   {%- endif -%}

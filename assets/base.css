@@ -2545,6 +2545,10 @@ input[type='checkbox'] {
   width: 25px;
   height: 25px;
 }
+.footer__icon .svg-wrapper {
+  width: 25px;
+  height: 25px;
+}
 
 .header__icon::after {
   content: none;

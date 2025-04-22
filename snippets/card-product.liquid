@@ -40,7 +40,7 @@
       assign ratio = 1
     endif
   -%}
-  <div class="card-wrapper product-card-wrapper underline-links-hover">
+  <div class="card-wrapper product-card-wrapper">
     <div
       class="
         card card--{{ settings.card_style }}
@@ -144,7 +144,7 @@
         </div>
       </div>
       <div class="card__content">
-        <div class="card__information">
+        <div class="custom-productcard__information card__information">
           <h3
             class="card__heading{% if card_product.featured_media or settings.card_style == 'standard' %} h5{% endif %}"
             {% if card_product.featured_media or settings.card_style == 'card' %}
@@ -160,7 +160,7 @@
               {{ card_product.title | escape }}
             </a>
           </h3>
-          <div class="card-information">
+          <div class="custom-price___information card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
               <div class="caption-with-letter-spacing light">{{ card_product.vendor }}</div>

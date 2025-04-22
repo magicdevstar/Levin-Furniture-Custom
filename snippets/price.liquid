@@ -98,7 +98,7 @@
               {% if settings.currency_code_enabled %}
                 {{ compare_at_price | money_with_currency }}
               {% else %}
-                {{ compare_at_price | money }}
+                was {{ compare_at_price | money }}
               {% endif %}
             </s>
           </span>

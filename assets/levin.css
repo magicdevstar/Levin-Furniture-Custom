@@ -271,7 +271,29 @@ ul {
 .footer__blocks-wrapper {
   width: 70%;
 }
-
+.custom-productcard__information {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.custom-productcard__information h3 a {
+  font-weight: bold;
+}
+.custom-price___information{
+  width: unset !important;
+}
+.price__sale span{
+  display: block;
+}
+.price--on-sale {
+  margin-top: 0px !important;
+  text-align: end;
+}
+.price__sale .price-item--last {
+  color: #c10230;
+  font-weight: bold;
+  width: max-content;
+}
 
 @media (max-width: 768px) {
   .hearder--banner-bar {

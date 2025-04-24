@@ -1,7 +1,12 @@
 <div class="page-width banner-slick-slider">
   {% for block in section.blocks %}
     <div class="slide-item">
-      <img src="{{ block.settings.image | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}">
+      <div class="small-hide">
+        <img src="{{ block.settings.image1 | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}">
+      </div>
+      <div class="small-visible">
+        <img src="{{ block.settings.image2 | img_url: 'master' }}" alt="{{ block.settings.image.alt | escape }}">
+      </div>
     </div>
   {% endfor %}
 </div>
@@ -17,8 +22,13 @@
       "settings": [
         {
           "type": "image_picker",
-          "id": "image",
-          "label": "Image"
+          "id": "image1",
+          "label": "Image1"
+        },
+        {
+          "type": "image_picker",
+          "id": "image2",
+          "label": "Image2"
         }
       ]
     }

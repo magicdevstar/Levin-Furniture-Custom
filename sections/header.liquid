@@ -253,7 +253,7 @@
       {%- if shop.customer_accounts_enabled -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
-          class="header__icon header__icon--account focus-inset{% if section.settings.menu != blank %} small-hide{% endif %}"
+          class="header__icon header__icon--account focus-inset"
           rel="nofollow"
         >
           {%- if section.settings.enable_customer_avatar -%}
@@ -297,7 +297,7 @@
         {%- endcase -%}
       {%- endfor -%}
 
-      <a href="/pages/financing" class="header__icon header__icon--cart focus-inset" id="cart-icon-bubble">
+      <a href="/pages/financing" class="header__icon{% if section.settings.menu != blank %} small-hide{% endif %} header__icon--cart focus-inset" id="cart-icon-bubble">
         <div class="header-icon-item">
           <span class="svg-wrapper">{{ 'wallet.svg' | inline_asset_content }}</span>
           <span class="header-icon-item__text">FINANCING</span>

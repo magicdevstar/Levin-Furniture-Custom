@@ -23,19 +23,19 @@
   }
 }
 
-@media screen and (max-width: 989px) {
+/* @media screen and (max-width: 989px) {
   .multicolumn .page-width {
     padding-left: 0;
     padding-right: 0;
   }
-}
+} */
 
 .multicolumn-card__image-wrapper--third-width {
   width: 33%;
 }
 
 .multicolumn-card__image-wrapper--half-width {
-  width: 15%;
+  width: 45px;
 }
 
 .multicolumn-list__item.center .multicolumn-card__image-wrapper:not(.multicolumn-card__image-wrapper--full-width),
